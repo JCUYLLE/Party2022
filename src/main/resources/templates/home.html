@@ -3,8 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>home</title>
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/style.css}" href="../static/css/style.css"/>
+
+
 </head>
 <body>
-<h1>home</h1>
+<h1>homepage</h1>
+<p>welcome to the party</p>
+<p th:text="${myspecialnumber}">myspecialnumber</p>
+<a th:href="@{/about}">about</a>
 </body>
 </html>
