@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 @Controller
 public class HomeController {
     private final int mySpecialNumber = 35;
+    private final String[] venuenames= {"Zillion","Carré","Cherrymoon"};
     @GetMapping(value = {"/", "/home", "/home/"})
 
     public String home(Model model) {
@@ -16,7 +17,8 @@ public class HomeController {
 
     @GetMapping(value = {"/venuelist", "/venuelist/"})
 
-    public String venuelist(){
+    public String venuelist(Model model){
+        model.addAttribute("venuenames",venuenames);
         return "venuelist";
     }
 
@@ -27,7 +29,8 @@ public class HomeController {
     }
 
     @GetMapping(value = {"/venuedetails/{venuename}"})
-    public String venuedetails(Model model, @PathVariable String venuename){
+    public String venuedetails(Model model,
+                               @PathVariable(required = false) String venuename){
         model.addAttribute("venuename",venuename);
         return "venuedetails";
     }

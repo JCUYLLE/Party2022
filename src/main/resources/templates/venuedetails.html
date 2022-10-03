@@ -6,16 +6,11 @@
     <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/style.css}" href="../static/css/style.css"/>
 </head>
 <body>
-<h1>Venue list</h1>
-<ul>
-    <li>
-        <a th:href="@{/venuedetails/Zillion}" href="">Zillion</a>
-    </li>
-    <li>
-        <a th:href="@{/venuedetails/Carré}" href="">Carré</a>
-    </li>
-    <li>
-        <a th:href="@{/venuedetails/Cherrymoon}" href="">Cherrymoon</a>
-    </li>
-</ul>
+<h1>venue details</h1>
+<div  class="row1">
+    <h2 th:if="${venuename}" th:text="${venuename}">venuedetails</h2>
+    <p th:unless="${venuename}">no venue was chosen</p>
+</div>
+
+</body>
 </html>
