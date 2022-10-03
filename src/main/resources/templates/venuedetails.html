@@ -2,15 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>About page</title>
+    <title>Venuedetails</title>
     <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/style.css}" href="../static/css/style.css"/>
 </head>
 <body>
-<h1>venue details</h1>
-<div  class="row1">
-    <h2 th:if="${venuename}" th:text="${venuename}">venuedetails</h2>
-    <p th:unless="${venuename}">no venue was chosen</p>
-</div>
+<div th:replace="fragments/header :: header"> header</div>
+<h1>Venuedetails</h1>
 
+<div th:each="venueName: ${venueNames}"><a class="buttonLook mediumButton"
+                                           th:href="@{|/venuedetails/${venueName}|}"
+                                           th:text="${venueName}">venue name</a></div>
+<div class="row1">
+    <div class="row1content"><h2 th:if="${venueName}" th:text="${venueName}">venuedetails </h2>
+        <p th:unless="${venueName}">no venue was chosen</p></div>
+</div>
 </body>
 </html>

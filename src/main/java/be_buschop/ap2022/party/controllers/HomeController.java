@@ -28,10 +28,14 @@ public class HomeController {
         return "about";
     }
 
-    @GetMapping(value = {"/venuedetails/{venuename}"})
+    @GetMapping(value = {"/venuedetails/{venueName}"})
     public String venuedetails(Model model,
-                               @PathVariable(required = false) String venuename){
-        model.addAttribute("venuename",venuename);
+                               @PathVariable(required = false) String venueName){
+        model.addAttribute("venueName",venueName);
         return "venuedetails";
+    }
+    @GetMapping("/pay")
+    public String pay(Model model) {
+        return "pay";
     }
 }
