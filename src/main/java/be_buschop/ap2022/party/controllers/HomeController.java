@@ -48,7 +48,7 @@ public class HomeController {
         Calendar c = Calendar.getInstance();
         c.setTime(today);
         model.addAttribute("today",format.format(today));
-        c.add(Calendar.DATE,5);
+        c.add(Calendar.DATE,30);
         Date paydate = c.getTime();
         model.addAttribute("paydate", format.format(paydate));
         return "pay";
