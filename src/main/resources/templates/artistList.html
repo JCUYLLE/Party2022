@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Venue list</title>
+    <title>Artist list</title>
     <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/style.css}" href="../static/css/style.css"/>
 </head>
 <body>
@@ -13,8 +13,8 @@
 <h1>Venue list</h1>
 <ul class="buttonlist">
 
-    <li th:each="Venue, iStat:${venues}">
-        <a th:href="@{|/venuedetailsbyindex/${iStat.index}|}" th:text="|${Venue.getVenueName()}|" href="">venue name</a>
+    <li th:each="Artist, iStat:${artists}">
+        <a th:href="@{|/artistDetails.html/${iStat.index}|}" th:text="|${Artist.getArtistName()}|" href="">artist name</a>
     </li>
 </ul>
 </div>
