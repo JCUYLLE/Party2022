@@ -24,7 +24,7 @@ public class HomeController {
     @GetMapping(value = {"/venuelist", "/venuelist/"})
 
     public String venuelist(Model model){
-        model.addAttribute("venuenames",venuenames);
+        model.addAttribute("venueNames",venuenames);
         return "venuelist";
     }
 
@@ -53,5 +53,34 @@ public class HomeController {
         model.addAttribute("paydate", format.format(paydate));
         return "pay";
     }
+    @GetMapping({"/venuedetailsbyindex","/venuedetailsbyindex/","/venuedetailsbyindex/{venueindex}"})
+    public String venuedetailsbyindex(Model model, @PathVariable(required = false) String venueindex){
+        String venueTitle = "";
+        if(venueindex !=null && Integer.parseInt(venueindex)%1 == 0 && Integer.parseInt(venueindex)>= 0 && Integer.parseInt(venueindex)< 5 )
+        {
+            //get venue data here
+            venueTitle = venuenames[Integer.parseInt(venueindex)];
+        }
+        else
+        {
+            venueTitle = "no valid venue";
+        }
+        int prevIndex = Integer.parseInt(venueindex)-1;
+        if(prevIndex<0){
+            prevIndex = venuenames.length - 1;
+        }
+
+        int nextIndex = Integer.parseInt(venueindex)+1;
+        if(nextIndex >4)
+        {
+            nextIndex = 0;
+        }
+
+        model.addAttribute("venueTitle",venueTitle);
+        model.addAttribute("prevIndex", prevIndex);
+        model.addAttribute("nextIndex", nextIndex);
+        return "venuedetailsbyindex";
+    }
+
 
 }

@@ -2,10 +2,15 @@
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/style.css}" href="../static/css/style.css"/>
     <title>Title</title>
 </head>
 <body>
 <div th:replace="fragments/header :: header">header</div>
-<h1>about</h1>
+
+<div class="container">
+    <h1>About</h1>
+    <p>Welcome to the About Page.</p>
+</div>
 </body>
 </html>
